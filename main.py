@@ -17,6 +17,22 @@ def get_range(n):
         return print(defult_list1)
     return print(defult_list1)
 
-get_range(5)
-get_range(0)
-get_range(-25)
+def duplicate(li):
+	return li.extend(li)
+
+def rotatelist(li):
+    if li == []:
+        return print(li)
+    else:
+        li.insert(0, li.pop())
+        return print(li)
+
+example = [1, 2, 3, 4, 5]
+rotatelist(example)
+i = []
+rotatelist(i)
+
+
+
+
+

@@ -1,0 +1,4 @@
+Help on built-in function count:
+
+ccoouunntt(value, /) method of builtins.list instance
+    Return number of occurrences of value.
