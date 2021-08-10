@@ -20,8 +20,8 @@ def check_for_avai_img():
         return page_url
 
 def check_for_url_of_img(page_url):
-        if page_url == 'The screenshot was removed':
-            return print('The screenshot was removed')
+        if 'The screenshot was removed' in page_url:
+            return 'https://github.com/'
         html_text_url = requests.get(page_url, headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36'}).text
         if 'https://image.prntscr.com/image/' in html_text_url:
             match = re.search('https://image.prntscr.com/image/.{22,32}.png', html_text_url)
