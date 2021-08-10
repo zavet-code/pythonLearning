@@ -27,10 +27,12 @@ def rotatelist(li):
         li.insert(0, li.pop())
         return print(li)
 
-example = [1, 2, 3, 4, 5]
-rotatelist(example)
-i = []
-rotatelist(i)
+import requests
+
+url = "http://image.prntscr.com/image/U3I-lRMpSt_3_xrrryGeqg.png"
+filename = url.split('/')[-1]
+r = requests.get(url, allow_redirects=True)
+open(filename, 'wb').write(r.content)
 
 
 
