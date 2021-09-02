@@ -35,8 +35,17 @@ def rotated_right(lststr):
     lststr = lststr[-1::] + lststr[0:-1:]
     return print(lststr)
 
+def find_index(felem ,li):
+    for (index, elem) in enumerate(li):
+        if felem == li[index]:
+            print(index)
+            break 
+    else:
+        None
 
-rotated_right('dsdw12sdc')
-rotated_right([1, 2, 3, 4, 5, 5])
-rotated_left('ABCD')
-rotated_left([1, 2, 3, 4, 5, 5])
+find_index(3,[1,1,2,4,2,3])
+print(find_index(42,[]) is None)
+print(find_index('!', 'abc') is None)
+
+
+
