@@ -37,15 +37,22 @@ def rotated_right(lststr):
 
 def find_index(felem ,li):
     for (index, elem) in enumerate(li):
-        if felem == li[index]:
-            print(index)
+        if felem == elem:
+            return index
             break 
-    else:
-        None
+        else:
+            None
 
-find_index(3,[1,1,2,4,2,3])
-print(find_index(42,[]) is None)
-print(find_index('!', 'abc') is None)
+
+def find_second_index(value, items):
+    iterator = iter(items)
+    first = find_index(value, iterator)
+    second = find_index(value, iterator)
+    if second is not None:
+        return second
+
+print(find_second_index('b','bo000000b'))
+print(find_second_index('a','cat') is None)
 
 
 
