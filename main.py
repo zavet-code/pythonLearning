@@ -51,8 +51,22 @@ def find_second_index(value, items):
     if second is not None:
         return second
 
-print(find_second_index('b','bo000000b'))
-print(find_second_index('a','cat') is None)
+def is_continuous_sequence(li):
+    if li == []:
+        return False
+    new_li = list(range(li[0], (li[0] + len(li))))
+    if len(li) == 0 or len(li) == 1:
+        return False
+    elif new_li == li:
+        return True
+    else: 
+        return False
+            
+        
 
-
-
+print(is_continuous_sequence([10, 11, 12, 13]))
+print(is_continuous_sequence([-5, -4, -3]))
+print(is_continuous_sequence([10, 11, 12, 14, 15]))
+print(is_continuous_sequence([1, 2, 2, 3]))
+print(is_continuous_sequence([13]))
+print(is_continuous_sequence([]))
