@@ -90,6 +90,12 @@ def count_all(li):
         di[value] = li.count(value)
     return print(di)
 
-count_all(['cat', 'dog', 'cat'])
-count_all('hellow')
-count_all('*' * 20)
+def collect_indexes(di):
+    di_res = {}
+    for i, v in enumerate(di):
+        di_res.setdefault(v, []).append(i)
+    return di_res
+
+d = collect_indexes('hellow')
+print(d['l'])
+print(d['w'])
