@@ -39,7 +39,7 @@ def find_index(felem ,li):
     for (index, elem) in enumerate(li):
         if felem == elem:
             return index
-            break 
+            break
         else:
             None
 
@@ -59,14 +59,31 @@ def is_continuous_sequence(li):
         return False
     elif new_li == li:
         return True
-    else: 
+    else:
         return False
-            
-        
 
-print(is_continuous_sequence([10, 11, 12, 13]))
-print(is_continuous_sequence([-5, -4, -3]))
-print(is_continuous_sequence([10, 11, 12, 14, 15]))
-print(is_continuous_sequence([1, 2, 2, 3]))
-print(is_continuous_sequence([13]))
-print(is_continuous_sequence([]))
+#def find_longest_length(string):    #Самая длинная подстрока
+    #count_char = []
+    #for index, value in string:
+        #if sting.count(value) > 1:
+        #    count_char.append(index)
+        #elif string[-1] = value:
+
+
+
+def make_user(name, age):
+    slov = dict(name = name,age = age)
+    return slov
+
+def format_user(slov):
+    result = ''
+    for v in slov.values():
+        if result == '':
+            result += v + ', '
+        else:
+            result += v
+    return result
+
+a = make_user('piter132', '18')
+print(a)
+print (format_user(a))
