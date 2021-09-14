@@ -84,6 +84,12 @@ def format_user(slov):
             result += v
     return result
 
-a = make_user('piter132', '18')
-print(a)
-print (format_user(a))
+def count_all(li):
+    di = {}
+    for value in li:
+        di[value] = li.count(value)
+    return print(di)
+
+count_all(['cat', 'dog', 'cat'])
+count_all('hellow')
+count_all('*' * 20)
