@@ -96,6 +96,14 @@ def collect_indexes(di):
         di_res.setdefault(v, []).append(i)
     return di_res
 
-d = collect_indexes('hellow')
-print(d['l'])
-print(d['w'])
+def all_usnique(it):
+    itset = set(it)
+    if len(itset) == len(it):
+        print(True)
+    else:
+        print(False)
+
+
+all_usnique('itd')
+all_usnique([1, 2, 3])
+all_usnique([1, 2, 1])
