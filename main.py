@@ -103,7 +103,31 @@ def all_usnique(it):
     else:
         print(False)
 
+def toggle(flag, li):
+    if flag in li:
+        li.discard(flag)
+    else:
+        li.add(flag)
 
-all_usnique('itd')
-all_usnique([1, 2, 3])
-all_usnique([1, 2, 1])
+#READ_ONLY = 'read_only'
+#flags = set()
+#toggle(READ_ONLY, flags)
+#print(READ_ONLY in flags)
+#toggle(READ_ONLY, flags)
+#print(READ_ONLY in flags)
+
+def toggled(flag, li):
+    li = li.copy()
+    if flag in li:
+        li.discard(flag)
+        return li
+    else:
+        li.add(flag)
+        return li
+
+READ_ONLY = 'read_only'
+flags = set()
+new_flags = toggled(READ_ONLY, flags)
+print(READ_ONLY in flags)
+print(READ_ONLY in new_flags)
+
