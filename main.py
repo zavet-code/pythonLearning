@@ -109,13 +109,6 @@ def toggle(flag, li):
     else:
         li.add(flag)
 
-#READ_ONLY = 'read_only'
-#flags = set()
-#toggle(READ_ONLY, flags)
-#print(READ_ONLY in flags)
-#toggle(READ_ONLY, flags)
-#print(READ_ONLY in flags)
-
 def toggled(flag, li):
     li = li.copy()
     if flag in li:
@@ -125,9 +118,20 @@ def toggled(flag, li):
         li.add(flag)
         return li
 
-READ_ONLY = 'read_only'
-flags = set()
-new_flags = toggled(READ_ONLY, flags)
-print(READ_ONLY in flags)
-print(READ_ONLY in new_flags)
+def diff_keys(old_di, new_di):
+    di = {'kept': [], 'added': [], 'removed': []}
+    new_di = set(new_di)
+    old_di = set(old_di)
+    for v in old_di:
+        if v in new_di:
+            di['kept'].append(v)
+        elif v not in new_di:
+            di['removed'].append(v)
+    for v in new_di:
+        if v not in old_di:
+            di['added'].append(v)
+    return di
 
+print(diff_keys({'name': 'Bob', 'age' : 42}, {}))
+print(diff_keys({}, {'name': 'Bob', 'age' : 42}))
+print(diff_keys({'a' : 1}, {'a': 2}))
