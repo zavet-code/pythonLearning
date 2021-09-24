@@ -149,4 +149,15 @@ def to_rna(dnk):
                 rna += rnk1[i]
     print(rna)
 
-to_rna('ACGTGGTCTTAA')
+def build_query_string(dict):
+    str_e = ''
+    count = len(list(dict.keys()))
+    i = 0
+    for k, v in dict.items():
+        str_e += k + '=' + str(v)
+        i += 1
+        if count > i:
+            str_e += '&'
+    print(str_e)
+
+build_query_string({"a": 1, "b": 2, "c" : 321})
