@@ -139,7 +139,14 @@ def apply_diff(target, diff):
         elif v == 'remove':
             target.symmetric_difference_update(diff['remove'])
 
-target = {'a', 'b', 'w', 'y'}
-diff = {'add': {'c'}, 'remove': {'a','d','w'}}
-apply_diff(target, diff)
-print(target)
+def to_rna(dnk):
+    dnk1 = 'GCTA'
+    rnk1 = 'CGAU'
+    rna = ''
+    for v in dnk:
+        for i, value in enumerate(dnk1):
+            if v == value:
+                rna += rnk1[i]
+    print(rna)
+
+to_rna('ACGTGGTCTTAA')
