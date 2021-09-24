@@ -132,6 +132,14 @@ def diff_keys(old_di, new_di):
             di['added'].append(v)
     return di
 
-print(diff_keys({'name': 'Bob', 'age' : 42}, {}))
-print(diff_keys({}, {'name': 'Bob', 'age' : 42}))
-print(diff_keys({'a' : 1}, {'a': 2}))
+def apply_diff(target, diff):
+    for v in diff:
+        if v == 'add':
+            target.update(diff['add'])
+        elif v == 'remove':
+            target.symmetric_difference_update(diff['remove'])
+
+target = {'a', 'b', 'w', 'y'}
+diff = {'add': {'c'}, 'remove': {'a','d','w'}}
+apply_diff(target, diff)
+print(target)
