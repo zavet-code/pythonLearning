@@ -160,4 +160,32 @@ def build_query_string(dict):
             str_e += '&'
     print(str_e)
 
-build_query_string({"a": 1, "b": 2, "c" : 321})
+dict_num = {1000: 'M', 900: 'CM', 500: 'D', 400: 'CD', 100: 'C', 90: 'XC', 50: 'L', 40: 'XL', 10: 'X', 9: 'IX', 5: 'V', 4: 'IV', 1: 'I'}
+def to_roman(n):
+    result = ''
+    for arabic, roman in dict_num.items():
+        result += n // arabic * roman
+        n %= arabic
+    return result
+
+print(to_roman(900))
+
+dict_num = {1000: 'M', 500: 'D', 100: 'C', 50: 'L', 10: 'X', 5: 'V', 1: 'I'}   # myself
+dict_num_1 =  {900: 'CM', 400: 'CD', 90: 'XC', 40: 'XL', 9: 'IX', 4: 'IV'}
+def to_arabic(n):
+    result = 0
+    for arabic, roman in dict_num_1.items():
+        if roman in n:
+            n = n.replace(roman, "")
+            result += arabic
+    for arabic, roman in dict_num.items():
+        for value in n:
+            if roman == value:
+                result += arabic
+    return result
+
+print(to_arabic("CM")) #900
+print(to_arabic("CMXXXIII")) #233
+print(to_arabic("CMXL")) #1900
+print(to_arabic("XXIV")) #21
+print(to_arabic("CMIII")) #903
