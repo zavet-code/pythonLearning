@@ -168,7 +168,6 @@ def to_roman(n):
         n %= arabic
     return result
 
-print(to_roman(900))
 
 dict_num = {1000: 'M', 500: 'D', 100: 'C', 50: 'L', 10: 'X', 5: 'V', 1: 'I'}   # myself
 dict_num_1 =  {900: 'CM', 400: 'CD', 90: 'XC', 40: 'XL', 9: 'IX', 4: 'IV'}
@@ -184,8 +183,26 @@ def to_arabic(n):
                 result += arabic
     return result
 
-print(to_arabic("CM")) #900
-print(to_arabic("CMXXXIII")) #233
-print(to_arabic("CMXL")) #1900
-print(to_arabic("XXIV")) #21
-print(to_arabic("CMIII")) #903
+
+
+def find_where(books, value):
+    for i in books:
+        i1 = i.copy()
+        i1.update(value)
+        if i == i1:
+            return print(i)
+        else:
+            print(None)
+
+
+books = [
+        {'title': 'Book of Foos', 'author': 'Foo', 'year': 1111},
+        {'title': 'Cymbeline', 'author': 'Shakespeare', 'year': 1611},
+        {'title': 'The Tempest', 'author': 'Shakespeare', 'year': 1611},
+        {'title': 'Book of Foos Bars', 'author': 'FooBar', 'year': 22222},
+        {'title': 'Book of Foos Fix', 'author': 'FooFix', 'year': 123123},
+        {'title': 'Book of Foos Mood', 'author': 'FooMood', 'year': 1611},
+        {'title': 'Book of Foos', 'author': 'Foo', 'year': 1111},
+        ]
+
+find_where(books, {'author': 'FooBar'})
