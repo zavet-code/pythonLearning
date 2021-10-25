@@ -198,8 +198,6 @@ def find_where(books, value):
 def scrabble(linestr, word):
     linestr = linestr.lower()
     word = word.lower()
-    if len(linestr) < len(word):
-        return False
     for letter in word:
         if word.count(letter) > linestr.count(letter):
             return False
