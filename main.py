@@ -203,10 +203,15 @@ def scrabble(linestr, word):
             return False
     return True
 
+import collections
+
+def mergeddict(dict1: dict, dict2: dict):
+    dicts = [dict1, dict2]
+    super_dict = collections.defaultdict(set)
+    for d in dicts:
+        for k, v in d.items():  # d.items() in Python 3+
+            super_dict[k].add(v)
+    return super_dict
 
 
-
-print(scrabble('lothuuuluuhe','hello'))
-print(scrabble('avj','java'))
-print(scrabble('PHPlooool','php'))
-print(scrabble('','deltec'))
+print(mergeddict({'a': 1, 'b': 2}, {'a': 100500, 'acv': 100}))
