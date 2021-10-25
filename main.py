@@ -195,14 +195,20 @@ def find_where(books, value):
             print(None)
 
 
-books = [
-        {'title': 'Book of Foos', 'author': 'Foo', 'year': 1111},
-        {'title': 'Cymbeline', 'author': 'Shakespeare', 'year': 1611},
-        {'title': 'The Tempest', 'author': 'Shakespeare', 'year': 1611},
-        {'title': 'Book of Foos Bars', 'author': 'FooBar', 'year': 22222},
-        {'title': 'Book of Foos Fix', 'author': 'FooFix', 'year': 123123},
-        {'title': 'Book of Foos Mood', 'author': 'FooMood', 'year': 1611},
-        {'title': 'Book of Foos', 'author': 'Foo', 'year': 1111},
-        ]
+def scrabble(linestr, word):
+    linestr = linestr.lower()
+    word = word.lower()
+    if len(linestr) < len(word):
+        return False
+    for letter in word:
+        if word.count(letter) > linestr.count(letter):
+            return False
+    return True
 
-find_where(books, {'author': 'FooBar'})
+
+
+
+print(scrabble('lothuuuluuhe','hello'))
+print(scrabble('avj','java'))
+print(scrabble('PHPlooool','php'))
+print(scrabble('','deltec'))
