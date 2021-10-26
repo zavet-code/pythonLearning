@@ -205,7 +205,7 @@ def scrabble(linestr, word):
 
 import collections
 
-def mergeddict(dict1: dict, dict2: dict):
+def mergeddict(dict1: dict, dict2: dict):   #So hard need check
     dicts = [dict1, dict2]
     super_dict = collections.defaultdict(set)
     for d in dicts:
@@ -213,5 +213,25 @@ def mergeddict(dict1: dict, dict2: dict):
             super_dict[k].add(v)
     return super_dict
 
+def gen_diff(dict1: dict, dict2: dict):
+    dicts = [dict1, dict2]
+    super_dict = collections.defaultdict(set)
+    for d in dicts:
+        for k, v in d.items():  # d.items() in Python 3+
+            super_dict[k].add(v)
+    for key1, value1 in dict1.items():
+            for key2, value2 in dict2.items():
+                if key1 == key2 and value1 == value2:
+                    super_dict[key1] = 'unchanged'
+                elif key1 == key2 and value1 != value2:
+                    super_dict[key1] = 'changed'
+                elif key1 not in dict2:
+                    super_dict[key1] = 'deleted'
+                elif key2 not in dict1:
+                    super_dict[key2] = 'added'
+    return super_dict
 
-print(mergeddict({'a': 1, 'b': 2}, {'a': 100500, 'acv': 100}))
+
+
+print(gen_diff({'one': 'eon', 'two': 'two', 'four': True},
+             {'zero': 4, 'four': True, 'two': 'own'}))
