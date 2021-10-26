@@ -214,11 +214,7 @@ def mergeddict(dict1: dict, dict2: dict):   #So hard need check
     return super_dict
 
 def gen_diff(dict1: dict, dict2: dict):
-    dicts = [dict1, dict2]
-    super_dict = collections.defaultdict(set)
-    for d in dicts:
-        for k, v in d.items():  # d.items() in Python 3+
-            super_dict[k].add(v)
+    super_dict = mergeddict(dict1, dict2)
     for key1, value1 in dict1.items():
             for key2, value2 in dict2.items():
                 if key1 == key2 and value1 == value2:
